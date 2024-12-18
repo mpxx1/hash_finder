@@ -62,7 +62,7 @@ pub fn calculate(zeros: &usize, dst_count: &usize, out_file: Option<&str>) {
                 if hash.check(zeros) {
                     // if we steel need to print this hash
                     if cur_count.fetch_add(1, Ordering::AcqRel) <= *dst_count {
-                        // we lock stdout and print found hash (as soon as possible)
+                        // we lock stdout and print found hash (as soon as they are found)
                         writer
                             .lock()
                             .unwrap()
